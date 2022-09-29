@@ -1,7 +1,7 @@
 import SearchBookResult from "./SearchBookResult";
 import SearchInput from "./SearchInput";
 import { useState, useEffect } from "react";
-import { search } from "./BooksAPI";
+import * as BAPI from "./BooksAPI"
 import { Link } from "react-router-dom";
 
 function SearchPage({ onUpdateBookShelf, booksInShelf }) {
@@ -11,7 +11,7 @@ function SearchPage({ onUpdateBookShelf, booksInShelf }) {
 
   useEffect(() => {
     if (inputText !== "") {
-      search(inputText)
+      BAPI.search(inputText)
         .then((books) => {
           setSearchedBooks(books);
         })

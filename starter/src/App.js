@@ -1,5 +1,5 @@
 import "./App.css";
-import { getAll } from "./BooksAPI";
+import * as BAPI from "./BooksAPI"
 import { useState, useEffect } from "react";
 import ListBooks from "./ListBooks";
 import SearchPage from "./SearchPage";
@@ -10,7 +10,7 @@ function App() {
   const [booksAll, setBooksAll] = useState([]);
 
   useEffect(() => {
-    getAll()
+    BAPI.getAll()
       .then((books) => {
         setBooksAll(books);
       })

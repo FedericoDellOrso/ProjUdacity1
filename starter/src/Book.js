@@ -1,9 +1,9 @@
 import BookShelfChanger from "./BookShelfChanger";
-import { update } from "./BooksAPI";
+import * as BAPI from "./BooksAPI"
 
 function Book({ book, onUpdateBookShelf }) {
   const onShelfChange = (shelf) => {
-    update(book, shelf).then((res) => console.log(res));
+    BAPI.update(book, shelf).then((res) => console.log(res));
     onUpdateBookShelf(book, shelf);
     //console.log("IDBook",book.title)
   };
