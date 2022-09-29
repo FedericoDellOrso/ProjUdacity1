@@ -21,14 +21,16 @@ function App() {
 
 
   const updateBook = (bookUpdate, newShelf) => {
+    let bookinState = false;
     let updatedBookList = booksAll.map((book) => {
       if (book.id === bookUpdate.id) {
+        bookinState=true;
         book.shelf = newShelf;
       }
       return book;
     });
     console.log("update",newShelf)
-    if (bookUpdate.shelf==="none"){
+    if (bookUpdate.shelf==="none" && !bookinState){
       bookUpdate.shelf=newShelf;
       updatedBookList = [...updatedBookList,bookUpdate]
     }
